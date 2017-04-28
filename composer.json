@@ -1,5 +1,5 @@
 {
-  "name": "peridot-php/peridot-emoji-reporter",
+  "name": "ryanplasma/peridot-emoji-reporter",
   "description": "An emoji reporter for the Peridot testing framework",
   "license": "MIT",
   "authors": [
