@@ -1,0 +1,18 @@
+language: php
+
+php:
+  - 5.6
+  - 5.5
+  - 5.4
+  - hhvm
+  - hhvm-nightly
+
+install:
+    - composer install --prefer-source
+
+script: vendor/bin/peridot specs/ -r emoji
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: hhvm-nightly

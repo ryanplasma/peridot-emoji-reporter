@@ -1,0 +1,23 @@
+{
+  "name": "peridot-php/peridot-emoji-reporter",
+  "description": "An emoji reporter for the Peridot testing framework",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ryan Plas",
+      "email": "ryan@wordplas.com"
+    }
+  ],
+  "require": {
+    "peridot-php/peridot": "~1.0",
+    "spatie/emoji": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Peridot\\Reporter\\Emoji\\": "src/"
+    }
+  },
+  "require-dev": {
+    "peridot-php/peridot-watcher-plugin": "~1.3"
+  }
+}
