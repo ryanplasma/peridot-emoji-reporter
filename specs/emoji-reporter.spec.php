@@ -28,7 +28,7 @@ describe('EmojiReporter', function() {
 			$test = new Test("failing test", function() {});
 			$this->emitter->emit('test.failed', [$test, new \Exception("error")]);
 			$output = $this->output->fetch();
-			assert(strpos($output, Emoji::pileOfPoo()) !== false, "output should have F");
+			assert(strpos($output, Emoji::pileOfPoo()) !== false, "output should have pile of poo");
 		});
 	});
 
@@ -37,7 +37,7 @@ describe('EmojiReporter', function() {
 			$test = new Test("pending test");
 			$this->emitter->emit('test.pending', [$test]);
 			$output = $this->output->fetch();
-			assert(strpos($output, Emoji::hearNoEvilMonkey()) !== false, "output should have P");
+			assert(strpos($output, Emoji::hearNoEvilMonkey()) !== false, "output should have hear-no-evil monkey");
 		});
 	});
 
