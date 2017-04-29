@@ -10,6 +10,7 @@ describe('DotReporterPlugin', function() {
 	beforeEach(function() {
 		$this->emitter = new EventEmitter();
 		$this->plugin = new EmojiReporterPlugin($this->emitter);
+		$this->plugin->register();
 	});
 
 	context('when peridot.reporters event is emitted', function() {

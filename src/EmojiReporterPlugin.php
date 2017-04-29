@@ -19,10 +19,9 @@ class EmojiReporterPlugin
 	/**
 	 * @param EventEmitterInterface $emitter
 	 */
-	public function __construct(EventEmitterInterface $emitter)
+	public function __construct(EventEmitterInterface $emitter, EmojiConfiguration $configuration = null)
 	{
 		$this->emitter = $emitter;
-		$this->emitter->on('peridot.reporters', [$this, 'onPeridotReporters']);
 	}
 
 	/**
@@ -33,4 +32,15 @@ class EmojiReporterPlugin
 	{
 		$reporters->register('emoji', 'emoji matrix', 'Peridot\Reporter\Emoji\EmojiReporter');
 	}
+
+    /**
+     * Register the reporters.
+     *
+     * @return $this
+     */
+    public function register()
+    {
+        $this->emitter->on('peridot.reporters', [$this, 'onPeridotReporters']);
+        return $this;
+    }
 }
