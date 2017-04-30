@@ -28,7 +28,7 @@ use Peridot\Reporter\Emoji\EmojiReporterPlugin;
 use Spatie\Emoji\Emoji;
 
 return function(EventEmitterInterface $emitter) {
-	(new EmojiReporterPlugin($emitter))->register();
+    (new EmojiReporterPlugin($emitter))->register();
 
     $emitter->on('emoji.start', function (EmojiReporter $reporter) {
         // The next 3 lines are optional - use them to change the default emojis
