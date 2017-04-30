@@ -48,7 +48,6 @@ class EmojiReporter extends AbstractBaseReporter
         $this->eventEmitter->on('test.failed', [$this, 'onTestFailed']);
         $this->eventEmitter->on('test.pending', [$this, 'onTestPending']);
         $this->eventEmitter->on('runner.start', [$this, 'onRunnerStart']);
-        $this->eventEmitter->on('runner.end', [$this, 'onRunnerEnd']);
     }
 
     /**
@@ -81,15 +80,6 @@ class EmojiReporter extends AbstractBaseReporter
     public function onRunnerStart()
     {
         $this->eventEmitter->emit('emoji.start', [$this]);
-    }
-
-    /**
-     * @return void
-     */
-    public function onRunnerEnd()
-    {
-        $this->output->writeln("");
-        $this->footer();
     }
 
     /**
