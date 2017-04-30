@@ -11,27 +11,27 @@ use Symfony\Component\Console\Input\InputInterface;
  */
 class EmojiReporterPlugin
 {
-	/**
-	 * @var EventEmitterInterface
-	 */
-	protected $emitter;
+    /**
+     * @var EventEmitterInterface
+     */
+    protected $emitter;
 
-	/**
-	 * @param EventEmitterInterface $emitter
-	 */
-	public function __construct(EventEmitterInterface $emitter, EmojiConfiguration $configuration = null)
-	{
-		$this->emitter = $emitter;
-	}
+    /**
+     * @param EventEmitterInterface $emitter
+     */
+    public function __construct(EventEmitterInterface $emitter, EmojiConfiguration $configuration = null)
+    {
+        $this->emitter = $emitter;
+    }
 
-	/**
-	 * @param InputInterface $input
-	 * @param ReporterFactory $reporters
-	 */
-	public function onPeridotReporters(InputInterface $input, ReporterFactory $reporters)
-	{
-		$reporters->register('emoji', 'emoji matrix', 'Peridot\Reporter\Emoji\EmojiReporter');
-	}
+    /**
+     * @param InputInterface $input
+     * @param ReporterFactory $reporters
+     */
+    public function onPeridotReporters(InputInterface $input, ReporterFactory $reporters)
+    {
+        $reporters->register('emoji', 'emoji matrix', 'Peridot\Reporter\Emoji\EmojiReporter');
+    }
 
     /**
      * Register the reporters.
