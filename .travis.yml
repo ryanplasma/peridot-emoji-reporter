@@ -21,7 +21,7 @@ install:
 script:
   - vendor/bin/peridot specs/ -r emoji
   - vendor/bin/peridot specs/ -r clover-code-coverage
-  - vendor/bin/phpcs src/ --standard=PSR2
+  - vendor/bin/phpcs -p . --standard=PSR2 --ignore=*/vendor/*
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN

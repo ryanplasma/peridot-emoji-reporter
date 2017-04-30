@@ -1,7 +1,6 @@
 <?php
 
 use Evenement\EventEmitterInterface;
-use Peridot\Console\Environment;
 use Peridot\Plugin\Watcher\WatcherPlugin;
 use Peridot\Reporter\CodeCoverage\AbstractCodeCoverageReporter;
 use Peridot\Reporter\CodeCoverageReporters;
@@ -9,9 +8,9 @@ use Peridot\Reporter\Emoji\EmojiReporter;
 use Peridot\Reporter\Emoji\EmojiReporterPlugin;
 use Spatie\Emoji\Emoji;
 
-return function(EventEmitterInterface $emitter) {
-	$watcher = new WatcherPlugin($emitter);
-	$watcher->track(__DIR__ . '/src');
+return function (EventEmitterInterface $emitter) {
+    $watcher = new WatcherPlugin($emitter);
+    $watcher->track(__DIR__ . '/src');
 
     (new EmojiReporterPlugin($emitter))->register();
 
