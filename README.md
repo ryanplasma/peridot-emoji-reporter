@@ -11,7 +11,7 @@ Derived from [Peridot Dot Reporter](https://github.com/peridot-php/peridot-dot-r
 
 ## Usage
 
-We recommend installing the reporter to your project via composer:
+I recommend installing the reporter to your project via composer:
 
 ```
 $ composer require --dev ryanplasma/peridot-emoji-reporter:~1.0
@@ -23,12 +23,28 @@ You can register the reporter via your [peridot.php](http://peridot-php.github.i
 <?php
 
 use Evenement\EventEmitterInterface;
+use Peridot\Reporter\Emoji\EmojiReporter;
 use Peridot\Reporter\Emoji\EmojiReporterPlugin;
+use Spatie\Emoji\Emoji;
 
 return function(EventEmitterInterface $emitter) {
-    $emoji = new EmojiReporterPlugin($emitter);
+	(new EmojiReporterPlugin($emitter))->register();
+
+    $emitter->on('emoji.start', function (EmojiReporter $reporter) {
+        // The next 3 lines are optional - use them to change the default emojis
+        $reporter->setPassEmoji(Emoji::smilingCatFaceWithHeartShapedEyes());
+        $reporter->setFailEmoji(Emoji::noEntry());
+        $reporter->setPendingEmoji(Emoji::alienMonster());
+    });
 };
 ```
+
+Default Emojis are:
+ * :pizza: for passing tests
+ * :poop: for failing tests
+ * :hear_no_evil: for pending tests
+ 
+See above example for how to customize what emojis are used.
 
 ## Running reporter tests
 
@@ -37,6 +53,3 @@ You can run the reporter specs and also preview the reporter in action like so:
 ```
 $ vendor/bin/peridot specs/ -r emoji
 ```
-
-Todo:
-* Allow emoji customization
